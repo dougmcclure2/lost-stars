@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://7c5samqe6oqh"]
+
+[ext_resource type="Texture2D" uid="uid://c7lesm26f73ux" path="res://sprites/characters/shade/goblin scout - silhouette all animations-walk.png" id="1_52wot"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lgqhf"]
+size = Vector2(18, 32)
+
+[node name="Shade" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+scale = Vector2(2, 2)
+texture = ExtResource("1_52wot")
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -16)
+shape = SubResource("RectangleShape2D_lgqhf")
+
+[node name="Camera2D" type="Camera2D" parent="."]
