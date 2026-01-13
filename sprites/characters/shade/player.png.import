@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://f1trj238ns0k"
-path="res://.godot/imported/goblin scout - silhouette all animations-death 1.png-1002717d1395d70c81a0abe4b19ad22f.ctex"
+uid="uid://bi5njsp060bl2"
+path="res://.godot/imported/player.png-3dcd353d2af408d1805b85940c0aec7f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/characters/shade/goblin scout - silhouette all animations-death 1.png"
-dest_files=["res://.godot/imported/goblin scout - silhouette all animations-death 1.png-1002717d1395d70c81a0abe4b19ad22f.ctex"]
+source_file="res://sprites/characters/shade/player.png"
+dest_files=["res://.godot/imported/player.png-3dcd353d2af408d1805b85940c0aec7f.ctex"]
 
 [params]
 
