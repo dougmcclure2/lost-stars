@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtxpd5n2w7yn8"
-path="res://.godot/imported/HUD_Boss.png-e57a1ba396230ddeb386443034f692ad.ctex"
+uid="uid://vm67as6fvhqn"
+path="res://.godot/imported/Reaper.png-80c513dbd1b280a3830e48e5f9b59a5c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/characters/death/HUD_Boss.png"
-dest_files=["res://.godot/imported/HUD_Boss.png-e57a1ba396230ddeb386443034f692ad.ctex"]
+source_file="res://sprites/characters/death/Reaper.png"
+dest_files=["res://.godot/imported/Reaper.png-80c513dbd1b280a3830e48e5f9b59a5c.ctex"]
 
 [params]
 
