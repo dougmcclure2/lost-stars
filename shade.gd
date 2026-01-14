@@ -1,22 +1,47 @@
 extends CharacterBody2D
 
+enum State {
+	IDLE,
+	WALK,
+	ATTACK,
+	DEAD
+}
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+@export_category("Stats")
+@export var speed: int = 200
+
+var state: State = State.IDLE
+var move_direction: Vector2 = Vector2(0,0)
+
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var animation_playback: AnimationNodeStateMachinePlayback = $AnimationTree["parameters/playback"]
+
+func get_input():
+	var input_direction = Input.get_vector("left", "right", "up", "down")
+	velocity = input_direction * speed
+	
+	if state == State.IDLE or State.WALK:
+		if input_direction.x < 0:
+			$Sprite2D.flip_h = true
+		elif input_direction.x > 0:
+			$Sprite2D.flip_h = false
+	
+	if velocity != Vector2.ZERO and state == State.IDLE:
+		state = State.WALK
+		update_animation()
+	elif velocity == Vector2.ZERO and state == State.WALK:
+		state = State.IDLE
+		update_animation()
 
 
-func _physics_process(delta: float) -> void:
-
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+func _physics_process(delta):
+	get_input()
 	move_and_slide()
+		
+func update_animation() -> void:
+		match state:
+			State.IDLE:
+				animation_playback.travel("idle")
+			State.WALK:
+				animation_playback.travel("walk")
+				
