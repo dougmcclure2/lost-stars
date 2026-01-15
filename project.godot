@@ -66,6 +66,9 @@ audio/channel_defaults={
 }
 layout/style_list=["res://characters/speaker.tres"]
 layout/default_style="res://characters/speaker.tres"
+text/autoskip_time_per_event=1.0
+animations/join_default="Fade In"
+animations/leave_default="Fade Out"
 
 [editor_plugins]
 
