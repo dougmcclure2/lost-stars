@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://brplcs4fmx1ql" path="res://sprites/objects/props.png" id="6_u40xr"]
 [ext_resource type="Texture2D" uid="uid://bqxkydnhhc0go" path="res://sprites/objects/plants.png" id="7_4op41"]
 [ext_resource type="PackedScene" uid="uid://7c5samqe6oqh" path="res://shade.tscn" id="8_lgqhf"]
-[ext_resource type="PackedScene" uid="uid://dgoi52qngs37h" path="res://reaper.tscn" id="9_lgqhf"]
+[ext_resource type="PackedScene" uid="uid://bcon2dhhod7fa" path="res://red_2.tscn" id="11_u40xr"]
 [ext_resource type="PackedScene" uid="uid://dqgdc07fxtukc" path="res://slime.tscn" id="11_vldoy"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vldoy"]
@@ -3560,10 +3560,7 @@ tile_set = SubResource("TileSet_kd83f")
 y_sort_enabled = true
 position = Vector2(113, 612)
 
-[node name="Reaper" parent="." instance=ExtResource("9_lgqhf")]
-y_sort_enabled = true
-position = Vector2(917, 578)
-scale = Vector2(1.5, 1.5)
-flip_h = true
-
 [node name="Slime" parent="." instance=ExtResource("11_vldoy")]
+
+[node name="Red2" parent="." instance=ExtResource("11_u40xr")]
+position = Vector2(957, 573)

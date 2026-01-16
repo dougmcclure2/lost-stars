@@ -45,3 +45,6 @@ func update_animation() -> void:
 			State.WALK:
 				animation_playback.travel("walk")
 				
+func shade():
+	pass
+				

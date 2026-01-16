@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcon2dhhod7fa"]
+
+[ext_resource type="Script" uid="uid://c5mpjriqf88r7" path="res://red_2.gd" id="1_2vpxa"]
+[ext_resource type="PackedScene" uid="uid://dgoi52qngs37h" path="res://reaper.tscn" id="1_3f4x6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3f4x6"]
+radius = 57.035076
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vpxa"]
+
+[node name="Red2" type="CharacterBody2D"]
+script = ExtResource("1_2vpxa")
+
+[node name="Reaper" parent="." instance=ExtResource("1_3f4x6")]
+scale = Vector2(2, 2)
+flip_h = true
+script = null
+
+[node name="Detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+shape = SubResource("CircleShape2D_3f4x6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_2vpxa")
