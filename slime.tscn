@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqgdc07fxtukc"]
+
+[ext_resource type="Texture2D" uid="uid://b7w8xlvdolydt" path="res://sprites/characters/slime.png" id="1_2d52u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5jc4t"]
+radius = 6.0
+
+[node name="Slime" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2d52u")
+hframes = 7
+vframes = 13
+frame = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_5jc4t")

@@ -1,6 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://dgoi52qngs37h"]
+[gd_scene load_steps=10 format=3 uid="uid://dgoi52qngs37h"]
 
-[ext_resource type="Texture2D" uid="uid://vm67as6fvhqn" path="res://sprites/characters/death/Reaper.png" id="1_lgd72"]
+[ext_resource type="Texture2D" uid="uid://vm67as6fvhqn" path="res://sprites/characters/red/Reaper.png" id="1_lgd72"]
+[ext_resource type="Script" uid="uid://dj28mpl8aktr1" path="res://reaper.gd" id="2_7mi6d"]
+
+[sub_resource type="Animation" id="Animation_7mi6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
 
 [sub_resource type="Animation" id="Animation_lgd72"]
 resource_name = "idle"
@@ -17,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 4]
-}
-
-[sub_resource type="Animation" id="Animation_7mi6d"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bpyeu"]
@@ -52,9 +53,13 @@ states/idle/node = SubResource("AnimationNodeAnimation_lgd72")
 states/idle/position = Vector2(324, 112)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_7mi6d")]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_bpyeu"]
+radius = 57.035076
+
 [node name="Reaper" type="Sprite2D"]
 texture = ExtResource("1_lgd72")
 hframes = 5
+script = ExtResource("2_7mi6d")
 
 [node name="ReaperAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -64,3 +69,8 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_bpyeu")
 anim_player = NodePath("../ReaperAnimationPlayer")
+
+[node name="Detect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect"]
+shape = SubResource("CircleShape2D_bpyeu")
