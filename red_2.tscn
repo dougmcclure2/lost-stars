@@ -4,9 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://dgoi52qngs37h" path="res://reaper.tscn" id="1_3f4x6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3f4x6"]
-radius = 57.035076
+radius = 99.18165
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2vpxa"]
+radius = 15.0
+height = 36.0
 
 [node name="Red2" type="CharacterBody2D"]
 script = ExtResource("1_2vpxa")
@@ -22,4 +24,7 @@ script = null
 shape = SubResource("CircleShape2D_3f4x6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 13)
 shape = SubResource("CapsuleShape2D_2vpxa")
+
+[connection signal="body_entered" from="Detect" to="." method="_on_detect_body_entered"]
