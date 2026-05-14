@@ -7,12 +7,14 @@ var is_chatting = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if player_in_area:
+	var e_prompt = get_node("EPrompt")
+	if player_in_area == true:
+		e_prompt.visible = true
 		if Input.is_action_just_pressed("interact"):
 			run_dialogue("intro")
 
@@ -22,10 +24,10 @@ func run_dialogue(dialogue_string):
 	
 	Dialogic.start(dialogue_string)
 
-func _on_chat_detection_body_entered(body):
-	if body.has_method("Shade"):
+func _on_detect_body_entered(body: CharacterBody2D) -> void:
+	if body.has_method("shade"):
 		player_in_area = true
 
-func _on_chat_detection_body_exited(body):
-	if body.has_method("Shade"):
+func _on_detect_body_exited(body: CharacterBody2D) -> void:
+	if body.has_method("shade"):
 		player_in_area = false
